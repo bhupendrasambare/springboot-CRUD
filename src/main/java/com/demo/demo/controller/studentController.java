@@ -24,7 +24,7 @@ public class studentController {
     }
     
     @GetMapping("/text")
-    public String getStudetns(){
+    public String getText(){
         return "text data";
     }
     
