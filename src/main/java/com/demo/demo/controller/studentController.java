@@ -22,7 +22,12 @@ public class studentController {
     public List<students> getStudetns(){
         return studentService.getStudents();
     }
-
+    
+    @GetMapping("/text")
+    public String getStudetns(){
+        return "text data";
+    }
+    
     @PostMapping("/students/{id}")
     public students getStudentById(@PathVariable("id") long id){
         return studentService.getStudentById(id);
