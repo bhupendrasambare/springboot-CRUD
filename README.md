@@ -1,5 +1,5 @@
-# springboot-CURD
-Started the spring boot learning after spring mvc This is the frist spring boot curd application i have developed
+# springboot-CRUD
+Started the spring boot learning after spring mvc This is the frist spring boot CRUD application i have developed
 
 ##Rquirements:
 
