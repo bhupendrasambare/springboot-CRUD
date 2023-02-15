@@ -8,6 +8,8 @@ pipeline {
         }
       }
       steps {
+        sh 'export MAVEN_HOME=/opt/homebrew/Cellar/maven/3.8.4/libexec'
+        sh 'export PATH=$PATH:$MAVEN_HOME/bin'
       	sh 'mvn clean install'
       }
     }
