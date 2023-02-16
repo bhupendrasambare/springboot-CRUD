@@ -1,11 +1,6 @@
 pipeline {
 	agent none
   stages {
-  	stage('Maven Install') {
-      steps {
-      	sh 'mvn clean install'
-      }
-    }
     stage('Docker Kill') {
     	agent any
       steps {
