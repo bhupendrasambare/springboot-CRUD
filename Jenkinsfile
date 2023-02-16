@@ -2,13 +2,14 @@ pipeline {
 	agent none
   stages {
   	stage('Maven Install') {
-    	agent {
-      	docker {
-        	image 'maven:3.8.4'
-        }
-      }
       steps {
       	sh 'mvn clean install'
+      }
+    }
+    stage('Docker Kill') {
+    	agent any
+      steps {
+          sh 'docker ps -a -q  --filter ancestor=spring-boot-curd'
       }
     }
     stage('Docker Build') {
@@ -20,7 +21,7 @@ pipeline {
     stage('Docker Push') {
     	agent any
       steps {
-          sh 'docker push spring-boot-cured'
+          sh 'docker run -d -p 8081:8081 spring-boot-curd'
       }
     }
   }
