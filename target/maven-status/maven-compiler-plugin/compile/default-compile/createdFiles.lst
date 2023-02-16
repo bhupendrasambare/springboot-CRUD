@@ -1,0 +1,6 @@
+com/demo/demo/entity/students.class
+com/demo/demo/controller/studentController.class
+com/demo/demo/service/studentsServiceImplimation.class
+com/demo/demo/service/studentService.class
+com/demo/demo/repository/studentRepo.class
+com/demo/demo/AAdemoApplication.class
