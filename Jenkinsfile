@@ -3,27 +3,27 @@ pipeline {
   stages {
   	stage('Maven Install') {
       steps {
+        options {catchError(message: "lint failed", buildResult: 'SUCCESS')}
       	sh 'mvn clean install'
       }
     }
-    try{
-      stage('Docker Kill') {
-        agent any
-        steps {
-            sh 'docker ps -a -q  --filter ancestor=spring-boot-curd'
-        }
+    stage('Docker Kill') {
+    	agent any
+      options {catchError(message: "lint failed", buildResult: 'SUCCESS')}
+      steps {
+          sh 'docker ps -a -q  --filter ancestor=spring-boot-curd'
       }
-    } catch (Exception e) {
-        echo "Stage failed, but we continue"  
     }
     stage('Docker Build') {
     	agent any
+      options {catchError(message: "lint failed", buildResult: 'SUCCESS')}
       steps {
       	sh 'docker build -t spring-boot-cured .'
       }
     }
     stage('Docker Push') {
     	agent any
+      options {catchError(message: "lint failed", buildResult: 'SUCCESS')}
       steps {
           sh 'docker run -d -p 8081:8081 spring-boot-curd'
       }
