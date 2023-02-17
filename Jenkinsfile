@@ -6,11 +6,16 @@ pipeline {
       	sh 'mvn clean install'
       }
     }
-    stage('Docker Kill') {
-    	agent any
-      steps {
-          sh 'docker ps -a -q  --filter ancestor=spring-boot-curd'
+    try{
+      stage('Docker Kill') {
+        agent any
+        steps {
+            sh 'docker ps -a -q  --filter ancestor=spring-boot-curd'
+        }
       }
+    }
+    } catch (Exception e) {
+        echo "Stage failed, but we continue"  
     }
     stage('Docker Build') {
     	agent any
