@@ -18,7 +18,6 @@ pipeline {
     }
     stage('Docker Build') {
     	agent any
-      options {catchError(message: "lint failed", buildResult: 'SUCCESS')}
       steps {
         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
           sh 'docker build -t spring-boot-cured .'
@@ -27,7 +26,6 @@ pipeline {
     }
     stage('Docker Push') {
     	agent any
-      options {catchError(message: "lint failed", buildResult: 'SUCCESS')}
       steps {
         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
           sh 'docker run -d -p 8081:8081 spring-boot-curd'
