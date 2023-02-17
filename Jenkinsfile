@@ -14,7 +14,7 @@ pipeline {
         }
       }
     }
-    } catch (Exception e) {
+    catch (Exception e) {
         echo "Stage failed, but we continue"  
     }
     stage('Docker Build') {
