@@ -13,8 +13,7 @@ pipeline {
             sh 'docker ps -a -q  --filter ancestor=spring-boot-curd'
         }
       }
-    }
-    catch (Exception e) {
+    } catch (Exception e) {
         echo "Stage failed, but we continue"  
     }
     stage('Docker Build') {
