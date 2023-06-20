@@ -49,7 +49,7 @@ Started the spring boot learning after spring mvc This is the frist spring boot 
 {
     "age":20,
     "email":"bhupendra@gmail.com",
-    "name":"bhupendra",
+    "name":"bhupendra sambare",
     "number":"+91 9516138020"
 }
 ```
